@@ -12,10 +12,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
-public class Noticia {
+public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -27,10 +26,10 @@ public class Noticia {
     private LocalDate data; 
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Usuario autor;
+    private User autor;
 
-    //@ManyToMany(cascade = CascadeType.ALL)
-    //private List<Categoria> categorias;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Categoria> categorias;
 
     public UUID getId() {
         return id;
@@ -64,11 +63,11 @@ public class Noticia {
         this.data = data;
     }
 
-    public Usuario getAutor() {
+    public User getAutor() {
         return autor;
     }
 
-    public void setAutor(Usuario autor) {
+    public void setAutor(User autor) {
         this.autor = autor;
     }
 

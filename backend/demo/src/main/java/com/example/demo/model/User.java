@@ -3,31 +3,40 @@ package com.example.demo.model;
 import java.util.List;
 import java.util.UUID;
 
-import jakarta.persistence.CascadeType;
+import com.example.demo.enums.PoderesUser;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-public class Usuario {
+@Table(name = "tb_user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     private String nome;
 
+    @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
     private String senha;
 
     private String telefone;
 
+    @Enumerated(EnumType.STRING)
+    private PoderesUser poderesUser;
+
     @OneToMany(mappedBy = "autor")
-    private List<Noticia> noticias;
+    private List<News> noticias;
 
     public UUID getId() {
         return id;
@@ -69,11 +78,11 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public List<Noticia> getNoticias() {
+    public List<News> getNoticias() {
         return noticias;
     }
 
-    public void setNoticias(List<Noticia> noticias) {
+    public void setNoticias(List<News> noticias) {
         this.noticias = noticias;
     }
 

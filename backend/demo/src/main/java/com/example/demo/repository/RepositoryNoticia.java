@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.model.Noticia;
+import com.example.demo.model.News;
 
-public interface RepositoryNoticia extends JpaRepository<Noticia,UUID>{
+public interface RepositoryNoticia extends JpaRepository<News,UUID>{
     
 }
