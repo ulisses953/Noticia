@@ -2,7 +2,7 @@ package com.example.demo.error;
 
 import java.util.Date;
 
-public class ErroPadrao {
+public class DefaltError {
     private String titulo;
     private String descrisao;
     private int codigo;
@@ -32,10 +32,10 @@ public class ErroPadrao {
     public void setData(Date data) {
         this.data = data;
     }
-    public ErroPadrao() {
+    public DefaltError() {
     }
     
-    public ErroPadrao(String titulo, String descrisao, int codigo, Date data) {
+    public DefaltError(String titulo, String descrisao, int codigo, Date data) {
         this.titulo = titulo;
         this.descrisao = descrisao;
         this.codigo = codigo;

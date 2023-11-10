@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.util.List;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -10,10 +11,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
 @Entity
-public class Categoria {
+public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private String titulo;
 
@@ -21,14 +22,6 @@ public class Categoria {
 
     @ManyToMany(mappedBy = "categorias",fetch = FetchType.LAZY)
     private List<News> noticia;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getTitulo() {
         return titulo;
@@ -44,6 +37,22 @@ public class Categoria {
 
     public void setDescrisao(String descrisao) {
         this.descrisao = descrisao;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public List<News> getNoticia() {
+        return noticia;
+    }
+
+    public void setNoticia(List<News> noticia) {
+        this.noticia = noticia;
     }
     
 }

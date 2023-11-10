@@ -29,7 +29,7 @@ public class News {
     private User autor;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Categoria> categorias;
+    private List<Category> categorias;
 
     public UUID getId() {
         return id;
