@@ -19,14 +19,14 @@ public class News {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    private String titulo;
+    private String title;
 
-    private String descrisao;
+    private String description;
     
-    private LocalDate data; 
+    private LocalDate date; 
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private User autor;
+    private User author;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Category> categorias;
@@ -39,38 +39,63 @@ public class News {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String titulo) {
+        this.title = titulo;
     }
 
-    public String getDescrisao() {
-        return descrisao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescrisao(String descrisao) {
-        this.descrisao = descrisao;
+    public void setDescription(String descrisao) {
+        this.description = descrisao;
     }
 
-    public LocalDate getData() {
-        return data;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setDate(LocalDate data) {
+        this.date = data;
     }
 
-    public User getAutor() {
-        return autor;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setAutor(User autor) {
-        this.autor = autor;
+    public void setAuthor(User autor) {
+        this.author = autor;
+    }
+
+    public List<Category> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Category> categorias) {
+        this.categorias = categorias;
+    }
+
+    public News() {
+    }
+
+    public News(String title, String description, LocalDate date, User author, List<Category> categorias) {
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.author = author;
+        this.categorias = categorias;
     }
 
 
+
+    
+
+    
+
+    
 
 }

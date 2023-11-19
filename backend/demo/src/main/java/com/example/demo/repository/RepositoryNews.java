@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.model.News;
 
-public interface RepositoryNoticia extends JpaRepository<News,UUID>{
+public interface RepositoryNews extends JpaRepository<News,UUID>{
     
 }

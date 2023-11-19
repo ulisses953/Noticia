@@ -32,9 +32,18 @@ public class DefaltError {
     public void setData(Date data) {
         this.data = data;
     }
+    /**
+     * 
+     */
     public DefaltError() {
     }
-    
+    /**
+     * 
+     * @param titulo
+     * @param descrisao
+     * @param codigo
+     * @param data
+     */
     public DefaltError(String titulo, String descrisao, int codigo, Date data) {
         this.titulo = titulo;
         this.descrisao = descrisao;

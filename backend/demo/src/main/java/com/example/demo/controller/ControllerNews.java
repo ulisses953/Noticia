@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,20 +9,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.error.DefaltError;
 import com.example.demo.interfaces.ControllerInterface;
 import com.example.demo.model.News;
-import com.example.demo.service.ServiceNoticia;
+import com.example.demo.service.ServiceNews;
 
 
 @RestController
 @RequestMapping("/noticia")
-public class ControllerNoticia implements ControllerInterface<News, UUID>{
+public class ControllerNews implements ControllerInterface<News, UUID>{
     @Autowired
-    private ServiceNoticia serviceNoticia;
+    private ServiceNews serviceNoticia;
 
     @Override
-    public ResponseEntity<News> save(News obj) {
-        return new ResponseEntity(serviceNoticia.save(obj),HttpStatus.CREATED);
+    public ResponseEntity<?> save(News obj) {
+        try {
+            return new ResponseEntity(serviceNoticia.save(obj),HttpStatus.CREATED);
+        } catch (Exception e) {
+           return new ResponseEntity(new DefaltError("Not found",e.toString(),404,new Date()), HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override

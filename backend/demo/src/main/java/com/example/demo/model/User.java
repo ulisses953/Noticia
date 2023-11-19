@@ -38,7 +38,8 @@ public class User {
     @OneToMany(mappedBy = "autor")
     private List<News> noticias;
 
-    public UUID getId() {
+    //#region get and set
+     public UUID getId() {
         return id;
     }
 
@@ -85,10 +86,20 @@ public class User {
     public void setNoticias(List<News> noticias) {
         this.noticias = noticias;
     }
-
-    //#region get and set
-
     
+
+    //#endregion
+
+    //#region constructor
+    public User() {}
+
+    public User(String nome, String email, String senha, String telefone, PoderesUser poderesUser) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.poderesUser = poderesUser;
+    }
 
     //#endregion
 }

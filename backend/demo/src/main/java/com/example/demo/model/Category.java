@@ -16,27 +16,27 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String titulo;
+    private String title;
 
-    private String descrisao;
+    private String description;
 
     @ManyToMany(mappedBy = "categorias",fetch = FetchType.LAZY)
     private List<News> noticia;
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String titulo) {
+        this.title = titulo;
     }
 
-    public String getDescrisao() {
-        return descrisao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescrisao(String descrisao) {
-        this.descrisao = descrisao;
+    public void setDescription(String descrisao) {
+        this.description = descrisao;
     }
 
     public UUID getId() {
